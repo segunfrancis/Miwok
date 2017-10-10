@@ -21,6 +21,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,10 +43,35 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
 
-    public void openColoursList(View view){
-        Intent intent = new Intent(this, ColoursActivity.class);
-        startActivity(intent);
+        // Setting a click listener for family text view
+        TextView family = (TextView)findViewById(R.id.family);
+        family.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                Intent intent =  new Intent(MainActivity.this, FamilyMembersActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // Setting a click listener for phrases text view
+        TextView phrases = (TextView)findViewById(R.id.phrases);
+        phrases.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(MainActivity.this, PhrasesActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // Setting a click listener for colours text view
+        TextView colours = (TextView)findViewById(R.id.colors);
+        colours.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ColoursActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
